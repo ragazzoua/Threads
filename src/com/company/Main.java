@@ -23,6 +23,12 @@ public class Main {
             @Override
             public void run() {
                 System.out.println(ANSI_RED + "Hello from the anonymous class's implementatiom of run");
+                try {
+                    anotherThread.join();
+                    System.out.println(ANSI_RED + "Another thread terminated, or time'd out, so i'm running again");
+                }catch (InterruptedException e){
+                    System.out.println(ANSI_RED + "I couldn't wait after all. I was interrupted");
+                }
             }
         });
 
